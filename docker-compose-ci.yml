@@ -49,10 +49,7 @@ services:
 
   gotrue:
     restart: on-failure
-    build:
-      context: .
-      dockerfile: docker/gotrue.Dockerfile
-    image: appflowyinc/gotrue:${GOTRUE_VERSION:-latest}
+    image: appflowyinc/gotrue
     environment:
       # There are a lot of options to configure GoTrue. You can reference the example config:
       # https://github.com/supabase/gotrue/blob/master/example.env
@@ -121,10 +118,7 @@ services:
 
   admin_frontend:
     restart: on-failure
-    build:
-      context: .
-      dockerfile: ./admin_frontend/Dockerfile
-    image: appflowyinc/admin_frontend:${BACKEND_VERSION:-latest}
+    image: appflowyinc/admin_frontend
     environment:
       - RUST_LOG=${RUST_LOG:-info}
       - ADMIN_FRONTEND_REDIS_URL=${ADMIN_FRONTEND_REDIS_URL:-redis://redis:6379}
@@ -144,9 +138,7 @@ services:
 
   appflowy_history:
     restart: on-failure
-    build:
-      context: .
-      dockerfile: ./services/appflowy-history/Dockerfile
+    image: appflowyinc/appflowy_history
     ports:
       - "50051:50051"
     environment:
