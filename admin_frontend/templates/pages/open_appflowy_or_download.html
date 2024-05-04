@@ -19,8 +19,16 @@
 
       window.location = 'appflowy-flutter://'+window.location.search+window.location.hash;
 
+      var inFocus = true;
+      window.addEventListener('focus', function () {
+        inFocus = true;
+      });
+      window.addEventListener('blur', function () {
+        inFocus = false;
+      });
+
       function checkFocus() {
-        if (document.hasFocus()) {
+        if (inFocus) {
           window.location = fallbackLink;
           return;
         }
