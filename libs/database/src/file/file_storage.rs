@@ -60,18 +60,16 @@ where
     }
 
     let obj_key = format!("{}/{}", workspace_id, file_id);
-    let mut tx = self.pg_pool.begin().await?;
+    self.client.pub_blob(obj_key, &file_data).await?;
+
     insert_blob_metadata(
-      &mut tx,
+      &self.pg_pool,
       &file_id,
       &workspace_id,
       &file_type,
       file_data.len(),
     )
     .await?;
-
-    self.client.pub_blob(obj_key, &file_data).await?;
-    tx.commit().await?;
     Ok(())
   }
 
