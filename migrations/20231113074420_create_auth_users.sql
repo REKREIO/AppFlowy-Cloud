@@ -1,0 +1,28 @@
+CREATE TABLE auth.users (
+    id uuid PRIMARY KEY,
+    aud TEXT NOT NULL,
+    role TEXT NOT NULL,
+    email TEXT NOT NULL UNIQUE,
+    email_confirmed_at TIMESTAMP WITH TIME ZONE,
+    invited_at TIMESTAMP WITH TIME ZONE,
+    phone TEXT NOT NULL,
+    phone_confirmed_at TIMESTAMP WITH TIME ZONE,
+    confirmation_sent_at TIMESTAMP WITH TIME ZONE,
+    confirmed_at TIMESTAMP WITH TIME ZONE,
+    recovery_sent_at TIMESTAMP WITH TIME ZONE,
+    new_email TEXT,
+    email_change_sent_at TIMESTAMP WITH TIME ZONE,
+    new_phone TEXT,
+    phone_change_sent_at TIMESTAMP WITH TIME ZONE,
+    reauthentication_sent_at TIMESTAMP WITH TIME ZONE,
+    last_sign_in_at TIMESTAMP WITH TIME ZONE,
+    app_metadata JSONB,
+    user_metadata JSONB,
+    factors JSONB,
+    identities JSONB,
+    created_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    banned_until TIMESTAMP WITH TIME ZONE,
+    deleted_at TIMESTAMP WITH TIME ZONE
+);
+

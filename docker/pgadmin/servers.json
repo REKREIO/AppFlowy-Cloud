@@ -1,11 +1,11 @@
 {
     "Servers": {
         "1": {
-            "Name": "postgres",
+            "Name": "rekreio",
             "Group": "Servers",
-            "Host": "postgres",
+            "Host": "localhost",
             "Port": 5432,
-            "MaintenanceDB": "postgres",
+            "MaintenanceDB": "rekreio",
             "Username": "postgres"
         }
     }
