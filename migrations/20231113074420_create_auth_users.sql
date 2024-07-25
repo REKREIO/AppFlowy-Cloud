@@ -1,5 +1,6 @@
 CREATE TABLE auth.users (
-    id uuid PRIMARY KEY,
+    instance_id UUID NULL,
+    id UUID PRIMARY KEY,
     aud TEXT NOT NULL,
     role TEXT NOT NULL,
     email TEXT NOT NULL UNIQUE,
@@ -25,4 +26,3 @@ CREATE TABLE auth.users (
     banned_until TIMESTAMP WITH TIME ZONE,
     deleted_at TIMESTAMP WITH TIME ZONE
 );
-
