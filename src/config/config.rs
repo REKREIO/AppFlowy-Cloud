@@ -179,7 +179,7 @@ pub fn get_configuration() -> Result<Config, anyhow::Error> {
       host: get_env_var("APPFLOWY_AI_SERVER_HOST", "localhost").into(),
     },
     grpc_history: GrpcHistorySetting {
-      addrs: get_env_var("APPFLOWY_GRPC_HISTORY_ADDRS", "http://localhost:50051"),
+      addrs: get_env_var("APPFLOWY_GRPC_HISTORY_ADDRS", "http://localhost:50052"),
     },
     mailer: MailerSetting {
       smtp_host: get_env_var("APPFLOWY_MAILER_SMTP_HOST", "smtp.gmail.com"),

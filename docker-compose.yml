@@ -152,7 +152,7 @@ services:
       context: .
       dockerfile: ./services/appflowy-history/Dockerfile
     ports:
-      - "50051:50051"
+      - "50052:50052"
     environment:
       - RUST_LOG=${RUST_LOG:-info}
       - APPFLOWY_HISTORY_REDIS_URL=redis://redis:6379

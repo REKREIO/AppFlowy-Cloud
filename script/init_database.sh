@@ -22,7 +22,7 @@ DB_USER="${POSTGRES_USER:=postgres}"
 DB_PASSWORD="${POSTGRES_PASSWORD:=password}"
 DB_PORT="${POSTGRES_PORT:=5432}"
 DB_HOST="${POSTGRES_HOST:=localhost}"
-DB_NAME="${POSTGRES_DB:=appflowy}"
+DB_NAME="${POSTGRES_DB:=rekreio}"
 
 if [[ -z "${SKIP_DOCKER}" ]]
 then
