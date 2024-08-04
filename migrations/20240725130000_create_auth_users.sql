@@ -1,4 +1,4 @@
-CREATE TABLE auth.users (
+CREATE TABLE public.users (
     instance_id UUID NULL,
     id UUID PRIMARY KEY,
     aud TEXT NOT NULL,

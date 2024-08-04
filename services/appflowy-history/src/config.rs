@@ -23,7 +23,7 @@ impl Config {
       db_settings: DatabaseSetting {
         pg_conn_opts: PgConnectOptions::from_str(&get_env_var(
           "APPFLOWY_HISTORY_DATABASE_URL",
-          "postgres://postgres:password@localhost:5432/postgres",
+          "postgres://postgres:password@localhost:5432/rekreio",
         ))?,
         require_ssl: get_env_var("APPFLOWY_HISTORY_DATABASE_REQUIRE_SSL", "false")
           .parse()

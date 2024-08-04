@@ -21,7 +21,7 @@ pub fn openai_client() -> openai_dive::v1::api::Client {
 
 pub async fn db_pool() -> PgPool {
   let database_url = std::env::var("APPFLOWY_INDEXER_DATABASE_URL")
-    .unwrap_or("postgres://postgres:password@localhost:5432/postgres".to_string());
+    .unwrap_or("postgres://postgres:password@localhost:5432/rekreio".to_string());
   PgPool::connect(&database_url)
     .await
     .expect("failed to connect to database")
@@ -30,7 +30,7 @@ pub async fn db_pool() -> PgPool {
 pub async fn setup_collab(db: &PgPool, uid: i64, object_id: Uuid, encoded_collab: Vec<u8>) -> Uuid {
   let mut tx = db.begin().await.unwrap();
   let user_uuid = Uuid::new_v4();
-  sqlx::query("INSERT INTO auth.users(id) VALUES($1)")
+  sqlx::query("INSERT INTO public.users(id) VALUES($1)")
     .bind(user_uuid)
     .execute(tx.deref_mut())
     .await
